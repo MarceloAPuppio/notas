@@ -16,10 +16,11 @@ body {
   background: var(--bg-p-color);
   color: var(--text-p-color);
   height: 2rem;
+  text-align: center;
 }
 .main {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 350px 1fr;
   grid-template-rows: 1fr;
   grid-template-areas: "panel pantalla";
   width: 100vw;
@@ -30,8 +31,32 @@ body {
   grid-area: panel;
   background: var(--bg-p-color);
   height: calc(100vh - 4rem);
+  display: flex;
+  flex-flow: column wrap;
+  padding: 1rem;
+  /* align-items: center; */
 }
 .notes {
   grid-area: pantalla;
   background: var(--bg-p-light-color);
+}
+.panel-listNotes {
+  list-style: none;
+  padding: 0;
+}
+.panel-listNotes__item {
+  display: flex;
+  width: 100%;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  color: var(--text-p-color);
+}
+.panel-listNotes__item__buttonwrapper {
+}
+.panel-listNotes__item__buttonwrapper button {
+  background: var(--bg-p-color);
+  border: none;
+}
+.pinned {
+  background: cornflowerblue !important;
 }
