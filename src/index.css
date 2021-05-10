@@ -56,7 +56,8 @@ body {
 .panel-listNotes__item__buttonwrapper button {
   background: var(--bg-p-color);
   border: none;
+  color: var(--text-p-color);
 }
 .pinned {
-  background: cornflowerblue !important;
+  /* background: cornflowerblue !important; */
 }
