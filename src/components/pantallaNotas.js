@@ -14,13 +14,16 @@ const PantallaNotas = () => {
     <>
       <section className="notes">
         <div className="notes-edit">
-          <form action="">
+          <h2>Editor</h2>
+          <form action="" className="notes-edit__form">
             <input
+              className="notes-edit__form__input"
               type="text"
               value={currentNota ? currentNota.title : ""}
               onChange={handleChangeI}
             />
             <textarea
+              className="notes-edit__form__textarea"
               name=""
               id=""
               cols="30"
@@ -28,10 +31,12 @@ const PantallaNotas = () => {
               value={currentNota ? currentNota.description : ""}
               onChange={handleChangeTA}
             ></textarea>
-            <button>Agregar +</button>
+            <button className="notes-edit__form__btn">Agregar +</button>
           </form>
         </div>
-        <div className="notes-preview"></div>
+        <div className="notes-preview">
+          <h2>Preview</h2>
+        </div>
       </section>
     </>
   );

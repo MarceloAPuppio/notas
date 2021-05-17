@@ -5,7 +5,7 @@ const sortedByDate = (list) => {
 const sortedByPin = (list) => {
   let pinned = list.filter((item) => item.pinned);
   let pinnedOff = list.filter((item) => !item.pinned);
-  let sortedByPinned = [...pinned, ...pinnedOff];
+  let sortedByPinned = [...sortedByDate(pinned), ...sortedByDate(pinnedOff)];
   return sortedByPinned;
 };
 export { sortedByDate, sortedByPin };

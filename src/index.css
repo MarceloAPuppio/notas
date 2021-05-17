@@ -3,7 +3,9 @@
   --bg-p-light-color: #383838;
   --text-p-color: whitesmoke;
 }
-
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -39,6 +41,37 @@ body {
 .notes {
   grid-area: pantalla;
   background: var(--bg-p-light-color);
+}
+.notes-edit {
+  width: 50%;
+  text-align: center;
+  float: left;
+}
+.notes-edit__form {
+  display: flex;
+  padding-left: 2rem;
+  flex-flow: column wrap;
+  align-items: flex-start;
+}
+.notes-edit__form__input {
+  border: none;
+  background: var(--bg-p-light-color);
+  color: var(--text-p-color);
+  font-size: 2rem;
+  width: 100%;
+}
+.notes-edit__form__textarea {
+  resize: none;
+  width: 100%;
+}
+.notes-edit__form__btn {
+  width: 5rem;
+  height: 2rem;
+}
+.notes-preview {
+  width: 50%;
+  float: left;
+  text-align: center;
 }
 .panel-listNotes {
   list-style: none;

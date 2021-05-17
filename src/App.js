@@ -30,10 +30,11 @@ function App() {
     if(currentNota){
 
       let arrayFiltrado= notas.filter((nota)=>nota.id!==currentNota.id)
-      setNotas([...arrayFiltrado, currentNota])
+      setNotas(sortedByPin([...arrayFiltrado, currentNota]))
     }
     // console.log('sorted', sortedByPin(notas));
   },[currentNota])
+  
 console.log(notas);
   return (
     <div className="App">
