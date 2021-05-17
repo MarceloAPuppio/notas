@@ -1,9 +1,10 @@
 import Panel from "./components/panel";
 import PantallaNotas from "./components/pantallaNotas";
 import Layout from "./views/Layout";
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import uuid from 'react-uuid'
 import Context from "./Context";
+import {sortedByDate, sortedByPin} from './list-events'
 
 function App() {
   let arregloNotas=[
@@ -24,11 +25,20 @@ function App() {
     fecha: new Date()}
   ]
   const [notas, setNotas]=useState(arregloNotas);
+  const [currentNota, setCurrentNota]= useState("")
+  useEffect(()=>{
+    if(currentNota){
+
+      let arrayFiltrado= notas.filter((nota)=>nota.id!==currentNota.id)
+      setNotas([...arrayFiltrado, currentNota])
+    }
+    // console.log('sorted', sortedByPin(notas));
+  },[currentNota])
 console.log(notas);
   return (
     <div className="App">
       <Layout>
-      <Context.Provider value={{notas, setNotas}}>        
+      <Context.Provider value={{notas, setNotas, currentNota, setCurrentNota}}>        
       <main className="main">
       <Panel/>
       <PantallaNotas/>

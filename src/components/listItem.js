@@ -1,13 +1,16 @@
 import React, { useContext, useEffect } from "react";
 import Context from "../Context";
+import { sortedByPin } from "../list-events";
 
 const ListItem = (nota) => {
-  let { notas, setNotas } = useContext(Context);
+  let { notas, setNotas, setCurrentNota } = useContext(Context);
   const handleClickDelete = () => {
     let copyNotas = notas.filter((index) => index.id !== nota.id);
     setNotas(copyNotas);
   };
-
+  const handleEditNote = () => {
+    setCurrentNota(nota);
+  };
   const handleClickPin = (e) => {
     let copyNotas = notas.filter((item) => item.id !== nota.id);
     let editedPinnedNota = { ...nota };
@@ -15,14 +18,14 @@ const ListItem = (nota) => {
     editedPinnedNota.pinned
       ? e.target.classList.add("pinned")
       : e.target.classList.remove("pinned");
-    setNotas([...copyNotas, editedPinnedNota]);
+    setNotas(sortedByPin([...copyNotas, editedPinnedNota]));
   };
 
   return (
     <li className="panel-listNotes__item">
       {nota.title}
       <div className="panel-listNotes__item__buttonwrapper">
-        <button>📝</button>
+        <button onClick={handleEditNote}>📝</button>
         <button onClick={handleClickDelete}>❌</button>
         <button onClick={handleClickPin}>{nota.pinned ? "📌" : "FIJAR"}</button>
       </div>
