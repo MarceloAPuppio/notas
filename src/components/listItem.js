@@ -25,6 +25,7 @@ const ListItem = (nota) => {
     <li className="panel-listNotes__item">
       {nota.title}
       <div className="panel-listNotes__item__buttonwrapper">
+        <button>💾</button>
         <button onClick={handleEditNote}>📝</button>
         <button onClick={handleClickDelete}>❌</button>
         <button onClick={handleClickPin}>{nota.pinned ? "📌" : "FIJAR"}</button>
